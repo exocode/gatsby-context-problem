@@ -6,46 +6,21 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { ShareContextProvider } from "../context/ShareContext"
 
-import Header from "./header"
-import "./layout.css"
+import SlimLayout from "../layouts/slim"
+import MainLayout from "../layouts/main"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = props => {
+  const slim = <SlimLayout children={props.children} />
+  const main = <MainLayout children={props.children} />
+  const current_layout = props.layout === "main" ? main : slim
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <ShareContextProvider>
+      <h1>Layout file</h1>
+      {current_layout}
+    </ShareContextProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
