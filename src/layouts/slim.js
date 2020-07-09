@@ -18,8 +18,10 @@ const SlimLayout = props => {
       <div>
         <Sidebar title="Sidebar" />
         <h1>Slim Layout</h1>
-        <p onClick={toggleShare}>
-          I am context in SlimLayout an I am {String(collapsedShare)}
+        <p>
+          I am context in SlimLayout{" "}
+          <button onClick={toggleShare}>Click me to change context</button> an I
+          am {String(collapsedShare)}
         </p>
         {props.children}
         <Footer />

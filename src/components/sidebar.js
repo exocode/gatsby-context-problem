@@ -6,10 +6,12 @@ const Sidebar = ({ siteTitle }) => {
   return (
     <>
       <header className="main-header">
-        <div onClick={toggleShare}>
+        <div>
           <h2>
-            I am context in Sidebar. Click me to change context: collapsedShare
-            is {String(collapsedShare)}
+            I am context in Sidebar.
+            <button onClick={toggleShare}>Click me to change context</button>
+            collapsedShare: is
+            {String(collapsedShare)}
           </h2>
         </div>
       </header>

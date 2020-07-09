@@ -6,10 +6,11 @@ const Footer = ({ siteTitle }) => {
   return (
     <>
       <header className="footer">
-        <div onClick={toggleShare}>
+        <div>
           <h2>
-            I am context in Footer. Click me to change context: collapsedShare
-            is {String(collapsedShare)}
+            I am context in Footer.{" "}
+            <button onClick={toggleShare}>Click me to change context</button>:
+            collapsedShare is {String(collapsedShare)}
           </h2>
         </div>
       </header>
